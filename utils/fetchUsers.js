@@ -30,6 +30,7 @@ export const fetchUsers = async () => {
                 };
                 usersData.push(dataObj);
             };
+            
             res(usersData);
         }
 

@@ -1,0 +1,39 @@
+body {
+    background-color: black;
+    position: relative;
+
+}
+
+#logInDiv {
+    background-color: rgb(52, 51, 51);
+    color: yellow;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 350px;
+    height:150px;
+    text-align: center;
+    margin-left:35%;
+    margin-top:10%;
+    border-radius: 60px;
+    border: 5px solid rgba(255, 255, 0, 0.47);
+    
+}
+
+input {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+label {
+    color: yellow;
+    font-size: x-large;
+    margin-right:5%;
+}
+button{
+    height: 30px;
+    font-weight: bolder;
+    background-color: black;
+    color: yellow;
+    
+}
