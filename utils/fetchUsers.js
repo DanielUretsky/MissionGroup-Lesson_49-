@@ -30,6 +30,8 @@ export const fetchUsers = async () => {
                 };
                 usersData.push(dataObj);
             };
+            
+            localStorage.setItem("users", JSON.stringify(usersData));
             res(usersData);
         }
 
