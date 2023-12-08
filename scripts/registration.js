@@ -23,10 +23,10 @@ const registrationHandler = () => {
                 break;
             }
             else {
-                const user = new User(1, firstNameInput.value, lastNameInput.value, emailNameInput.value, passwordNameInput.value);
+                const user = new User(users.length + 1, firstNameInput.value, lastNameInput.value, emailNameInput.value, passwordNameInput.value);
+               
                 users.push(user);
-                console.log(user);
-                console.log('users after', users);
+                localStorage.setItem("users", JSON.stringify(users));
                 break;
             }
         }

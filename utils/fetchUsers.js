@@ -31,6 +31,7 @@ export const fetchUsers = async () => {
                 usersData.push(dataObj);
             };
             
+            console.log('userData from fetch', usersData);
             localStorage.setItem("users", JSON.stringify(usersData));
             res(usersData);
         }
