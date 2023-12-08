@@ -3,12 +3,12 @@ export const fetchUsers = async () => {
         const xhr = new XMLHttpRequest();
         xhr.open("GET", "https://dummyjson.com/users", true);
 
-        xhr.onload = function() {
+        xhr.onload = function () {
             let data = JSON.parse(this.responseText);
             data = data.users;
             let usersData = [];
-            
-            for(let x in data) {
+
+            for (let x in data) {
                 let dataObj = {
                     id: data[x].id,
                     firstName: data[x].firstName,
@@ -30,9 +30,12 @@ export const fetchUsers = async () => {
                 };
                 usersData.push(dataObj);
             };
-            
+
             console.log('userData from fetch', usersData);
-            localStorage.setItem("users", JSON.stringify(usersData));
+            if (!localStorage.getItem("users")) {
+                localStorage.setItem("users", JSON.stringify(usersData));
+            }
+
             res(usersData);
         }
 
