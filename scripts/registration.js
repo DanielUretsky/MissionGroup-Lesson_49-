@@ -9,7 +9,7 @@ const emailNameInput = document.getElementById("email");
 const passwordNameInput = document.getElementById("password");
 
 const registrationButton = document.getElementById("regsitrationBtn");
-
+const errorMessageSpan = document.getElementById("errorMessage");
 const registrationHandler = () => {
     if(firstNameInput.value !== "" &&
        lastNameInput.value !== "" &&
@@ -19,7 +19,7 @@ const registrationHandler = () => {
         for(let x in users) {
             const userObj = users[x];
             if(emailNameInput.value === userObj.email) {
-                alert("user is already exists");
+                errorMessageSpan.textContent = "User is already exists";
                 break;
             }
             else {
@@ -27,12 +27,14 @@ const registrationHandler = () => {
                 users.push(user);
                 console.log(user);
                 console.log('users after', users);
+                localStorage.setItem("users",users);
                 break;
             }
         }
+
     } else {
-        alert("Missing data");
+        errorMessageSpan.textContent = "All inputs are required!";
     }
 }
 
-registrationButton.addEventListener("click", registrationHandler)
+registrationButton.addEventListener("click", registrationHandler);
