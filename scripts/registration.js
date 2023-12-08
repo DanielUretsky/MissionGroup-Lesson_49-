@@ -25,9 +25,12 @@ const registrationHandler = () => {
             else {
                 const user = new User(1, firstNameInput.value, lastNameInput.value, emailNameInput.value, passwordNameInput.value);
                 users.push(user);
+                console.log(user);
+                console.log('users after', users);
                 break;
             }
         }
+
     } else {
         errorMessageSpan.textContent = "All inputs are required!";
     }
