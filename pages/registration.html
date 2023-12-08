@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/registration.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,500;0,700;0,900;1,500&display=swap"
+        rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
 
-    <div class="registration-container">
-        <div class="registration-container__header">
-            <h1>Registration</h1>
+<body>
+    <div class="wrapper">
+        <div class="background">
+            <div class="background__redirect-login">
+                <span>Have an account? </span>
+                <a href="../pages/login.html">LOGIN</a>
+
+            </div>
         </div>
-        <div class="registration-container__inputs">
-            <input type="text" placeholder="First name" id="firstName">
-            <input type="text" placeholder="Last name" id="lastName">
-            <input type="text" placeholder="Email" id="email">
-            <input type="text" placeholder="Password" id="password">
-        </div>
-        <div class="registration-container__btn">
-            <button id="regsitrationBtn">Register</button>
-            <span>Have an account? <a href="../pages/login.html">Login</a></span>
+        <div class="registration-container">
+            <div class="registration-container__header">
+                <h1>Registration</h1>
+            </div>
+            <div class="registration-container__inputs">
+                <input type="text" placeholder="First name" id="firstName">
+                <input type="text" placeholder="Last name" id="lastName">
+                <input type="text" placeholder="Email" id="email">
+                <input type="password" placeholder="Password" id="password">
+            </div>
+            <div class="registration-container__btn">
+                <button id="regsitrationBtn">Register</button>
+                <span id="errorMessage"></span>
+
+            </div>
+
         </div>
     </div>
 
     <script type="module" src="../scripts/registration.js"></script>
 </body>
+
 </html>
