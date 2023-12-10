@@ -1,39 +1,70 @@
 body {
-    background-color: black;
+    background-color: rgb(57, 57, 57);
     position: relative;
 
 }
 
+
 #logInDiv {
-    background-color: rgb(52, 51, 51);
-    color: yellow;
+    background: linear-gradient(-45deg, rgb(4, 4, 4), rgb(64, 63, 63), rgb(26, 26, 26));
+    color:white;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: absolute;
+    left: -10%;
     width: 350px;
-    height:150px;
+    height: 150px;
     text-align: center;
-    margin-left:35%;
-    margin-top:10%;
-    border-radius: 60px;
-    border: 5px solid rgba(255, 255, 0, 0.47);
-    
+    margin-left: 35%;
+    margin-top: 10%;
+    border-radius: 10px;
+    border: 5px solid rgb(78, 77, 77);
+    z-index: 1;
+
+}
+
+.btnDiv {
+    background: linear-gradient(-45deg, rgb(26, 26, 26), rgb(47, 44, 44), rgb(26, 26, 26));
+    border-radius: 10px;
+    border: 5px solid rgb(78, 77, 77);
+    position: absolute;
+
+    left: 40%;
+    top: 30%;
+    height: 50px;
+    width: 350px;
+    z-index: 0;
+    height: 200px;
+
 }
 
 input {
     margin-top: 5%;
     margin-bottom: 5%;
+    background-color: rgb(57, 57, 57);
+    color:white;
+
+
 }
 
 label {
-    color: yellow;
+    color:white;
     font-size: x-large;
-    margin-right:5%;
+    margin-right: 5%;
 }
-button{
+
+.BTNS {
+    left: 90%;
+    display: flex;
+    align-items: end;
+    flex-direction:column-reverse;
+}
+
+button {
     height: 30px;
+    margin: 2%;
     font-weight: bolder;
     background-color: black;
     color: yellow;
-    
 }
