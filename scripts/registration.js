@@ -2,7 +2,7 @@ import {fetchUsers} from '../utils/fetchUsers.js';
 import {User} from '../utils/userModel.js';
 
 let users = await fetchUsers();
-console.log('users before', users);
+
 const firstNameInput = document.getElementById("firstName");
 const lastNameInput = document.getElementById("lastName");
 const emailNameInput = document.getElementById("email");
@@ -10,6 +10,7 @@ const passwordNameInput = document.getElementById("password");
 
 const registrationButton = document.getElementById("regsitrationBtn");
 const errorMessageSpan = document.getElementById("errorMessage");
+
 const registrationHandler = () => {
     if(firstNameInput.value !== "" &&
        lastNameInput.value !== "" &&
@@ -23,7 +24,7 @@ const registrationHandler = () => {
                 break;
             }
             else {
-                const user = new User(users.length + 1, firstNameInput.value, lastNameInput.value, emailNameInput.value, passwordNameInput.value);
+                const user = new User(users.length + 1, firstNameInput.value, lastNameInput.value, emailNameInput.value, passwordNameInput.value, "../pages/asstes/icons/user.png");
                
                 users.push(user);
                 localStorage.setItem("users", JSON.stringify(users));
@@ -36,6 +37,7 @@ const registrationHandler = () => {
         errorMessageSpan.textContent = "All inputs are required!";
     }
 }
+
 
 registrationButton.addEventListener("click", registrationHandler);
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../assets/icons/logo.png" alt="logo">
+            </div>
+            <div class="user-container" id="userContainer">
+                <div class="user-container__user">
+                    <img src="../assets/icons/user.png" alt="user" id="userMenu">
+                    <p id="userInitials">Daniel Uretsky</p>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="tools-container" id="toolsContainer">
+            <div class="toggle">
+                <img src="../assets/icons/up-down-arrow.png" alt="up down" id="toolsArrowToggle">
+            </div>
+            <div class="info">
+                <div class="info__users-count">
+                    <img src="../assets/icons/users.png" alt="">
+                    Users: 30
+                </div>
+                <div class="info__males">
+                    <img src="../assets/icons/males.png" alt="males">
+                    Females: 5
+                </div>
+                <div class="info__females">
+                    <img src="../assets/icons/females.png" alt="females">
+                    Males: 25
+                </div>
+                <div class="info__middle-age">
+                    <img src="../assets/icons/age-group.png" alt="">
+                    Middle age: 22
+                </div>
+            </div>
+            <div class="tools">
+                <div class="gender">
+                    <div class="gender__header">
+                        Gender:
+                    </div>
+                    <div class="gender__male">
+                        <label for="male">Male</label>
+                        <input type="checkbox" name="male">
+                    </div>
+                    
+                    <div class="gender__female">
+                        <label for="male">Female</label>
+                        <input type="checkbox" name="female">
+                    </div>
+                    
+                </div>
+
+                <div class="gender">
+                    <div class="gender__header">
+                        Profession:
+                    </div>
+                    <section></section>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <div class="cards" id="usersCardContainer">
+
+        </div>
+    </main>
+
+    <footer>
+        All rights reserved
+    </footer>
+
+    <script type="module" src="../scripts/home.js"></script>
+</body>
+</html>
