@@ -2,14 +2,14 @@ import { fetchUsers } from "../utils/fetchUsers.js";
 
 
 ///varibales
-let usersArr=[];
+let usersArr=JSON.parse(localStorage.getItem("users"))
 let userCheck=false;
 
 /////////////// 9uQFF1Lh ___ atuny0@sohu.com
-fetchUsers().then((data)=>{
-    usersArr.push(...data);
+// fetchUsers().then((data)=>{
+//     usersArr.push(...data);
 
-})
+// })
 
 console.log("line 13 ",usersArr);
 
