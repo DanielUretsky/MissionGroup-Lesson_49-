@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     height: 100vh;
     font-family: 'Roboto', sans-serif;
 }
@@ -157,7 +157,7 @@ main {
 .info {
     width: 100%;
     height: 200px;
-  
+
 
     margin: auto;
     display: flex;
@@ -248,15 +248,19 @@ main {
     width: 70%;
     height: 25px;
 
-    background: url("../assets/icons/search.png") no-repeat right;
-    background-size: 15px;
-
     outline: none;
     border: none;
     border-bottom: 1px solid white;
 
     background-color: transparent;
     color: white;
+}
+
+#searchIcon {
+    width: 15px;
+    height: 15px;
+
+    cursor: pointer;
 }
 
 .filter {
@@ -304,6 +308,22 @@ main {
     margin-left: 15%;
 }
 
+#job {
+    width: 120px;
+    height: 30px;
+    
+    outline: 10px red;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    background-color: gray;
+    background-image: none;
+    cursor: pointer;
+}
+
 
 .cards-container {
     width: 60vw;
@@ -312,7 +332,7 @@ main {
     border-radius: 8px;
 
     display: flex;
-    
+
     justify-content: center;
     align-items: center;
 }
@@ -320,7 +340,7 @@ main {
 .cards {
     width: 80%;
     height: 80%;
-    
+
     overflow: auto;
 }
 
@@ -331,7 +351,7 @@ main {
 .cards::-webkit-scrollbar-thumb {
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
-   
+
 }
 
 .card {
@@ -340,7 +360,7 @@ main {
     width: 95%;
     height: 60px;
 
-    
+
     border-bottom: 1px solid white;
 
     overflow: hidden;
@@ -365,20 +385,21 @@ main {
 
     justify-content: space-between;
 
-    
+
 }
 
-.more-info, .more-profession-info {
+.more-info,
+.more-profession-info {
     height: 50px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    
+
     font-size: 0.8rem;
     color: white;
-    
+
 }
 
 .more-info {
@@ -421,7 +442,7 @@ main {
 .initials__info {
     width: 240px;
     height: 60px;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -460,7 +481,7 @@ main {
 
     display: flex;
     align-items: center;
-    
+
     font-size: 0.9rem;
     color: white;
 
@@ -486,3 +507,10 @@ footer {
 
     color: white;
 }
+
+@media screen and (min-height: 700px){
+    .info {
+        height: 250px;
+        
+    }
+}  

@@ -29,7 +29,7 @@ const registrationHandler = () => {
             }
             
             if(emailNameInput.value !== userObj.email && users.length - 1 == x ) {
-                const user = new User(users.length + 1, firstNameInput.value, lastNameInput.value, emailNameInput.value, passwordNameInput.value, "../asstes/icons/user.png", true);
+                const user = new User(users.length + 1, firstNameInput.value, lastNameInput.value, emailNameInput.value, passwordNameInput.value, "../assets/icons/user.png", true);
                 users.push(user);
                 localStorage.setItem("users", JSON.stringify(users));
                 window.location.href = "../pages/login.html";

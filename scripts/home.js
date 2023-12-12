@@ -1,3 +1,4 @@
+import { fetchUsers } from "../utils/fetchUsers.js";
 import { User } from "../utils/userModel.js";
 
 // Raz, your mission: 
@@ -22,10 +23,18 @@ if(!localStorage.Current_User){
 ///
 console.log(usersFromLocalStorage);
 
-//HTML ELEMENTS
+// ----HTML ELEMENTS---- //
 const userContainerDiv = document.getElementById("userContainer");
 const usersCardsContainerDiv = document.getElementById("usersCardsContainer");
 const userMenuImage = document.getElementById("userMenu");
+
+//Filter elements
+const searchInput = document.getElementById("search");
+const searchImage = document.getElementById("searchIcon");
+const maleFilterCheckBox = document.getElementById("male");
+const femaleFilterCheckBox = document.getElementById("female");
+const userJobSelect = document.getElementById("job");
+
 
 const userInitialsSpan = document.getElementById("userInitials");
 
@@ -36,6 +45,7 @@ const userEditImage = document.createElement("img");
 const userLogoutContainerDiv = document.createElement("div");
 const userLogoutParagraph = document.createElement("p");
 const userLogoutImage = document.createElement("img");
+// ----HTML ELEMENTS---- //
 
 //userContainer flag
 let isDropDownMenuOpen = false;
@@ -43,7 +53,7 @@ let isDropDownMenuOpen = false;
 
 userInitialsSpan.textContent = `${loggedUser.firstname} ${loggedUser.lastname}`;
 
-if (loggedUser.image) {
+if (loggedUser.image && !loggedUser.isAdmin) {
     userMenuImage.src = loggedUser.image;
     userMenuImage.style.borderRadius = '50%';
     userMenuImage.style.border = '1px solid white';
@@ -107,17 +117,67 @@ const cardToggleHandler = (objState, cardDiv, cardToggleImage) => {
     }
 }
 
-const editUserHandler = () => {
-
+const editUserHandler =  () => {
+    
 }
 
+const searchHandler = async () => {
+    const url = `https://dummyjson.com/users/search?q=${searchInput.value}`;
+    const searchResult = await fetchUsers(url);
+    
+    showUsers(searchResult)
+    searchInput.value = "";
+}
+
+const filterHandler = async () => {
+    let url;
+    let result;
+
+    if(maleFilterCheckBox.checked) {
+        url = `https://dummyjson.com/users/filter?key=gender&value=${maleFilterCheckBox.value}`;
+        result = await fetchUsers(url);
+
+        femaleFilterCheckBox.disabled = true;
+        userJobSelect.disabled = true; 
+        showUsers(result);
+    } 
+    else {
+        femaleFilterCheckBox.disabled = false;
+        userJobSelect.disabled = false;
+         
+    }
+    
+    if(femaleFilterCheckBox.checked) {
+        url = `https://dummyjson.com/users/filter?key=gender&value=${femaleFilterCheckBox.value}`;
+        result = await fetchUsers(url);
+
+        maleFilterCheckBox.disabled = true;
+        userJobSelect.disabled = true; 
+        showUsers(result);
+    }
+    else {
+        maleFilterCheckBox.disabled = false;
+        userJobSelect.disabled = false;
+        
+    }
+    
+    if(userJobSelect.value !== "") {
+        url = `https://dummyjson.com/users/filter?key=company.department&value=${userJobSelect.value}`;
+        result = await fetchUsers(url);
+
+        femaleFilterCheckBox.disabled = true;
+        maleFilterCheckBox.disabled = true; 
+        showUsers(result);
+    } 
+  
+}
 //Raz
-const userLogout=()=>{
+const userLogout = () =>{
 
     localStorage.removeItem("Current_User");
     window.location.href="../pages/login.html";
     
-    }
+}
 //end Raz
 
 function showUsers(usersArr) {
@@ -141,8 +201,6 @@ function showUsers(usersArr) {
         const userObj = usersArr[x];
 
         if (!userObj.isAdmin) {
-
-
             const cardDiv = document.createElement("div");
             const cardToggleImage = document.createElement("img");
 
@@ -171,6 +229,8 @@ function showUsers(usersArr) {
             const cardUserPositionDiv = document.createElement("div");
             const positionSpan = document.createElement("span");
 
+            let userJobOption = document.createElement("option");
+
             const objState = {
                 cardOpen: false,
             }
@@ -178,17 +238,21 @@ function showUsers(usersArr) {
             if (userObj.gender === "male") {
                 malesCounter++;
                 malesCounterSpan.textContent = `males: ${malesCounter}`;
-            }
-            else if (userObj.gender === "female") {
+            } 
+
+            if (userObj.gender === "female") {
                 femalesCounter++;
                 femalesCounterSpan.textContent = `females: ${femalesCounter}`;
-            }
+            } 
 
 
             sumAge += userObj.age;
             usersCounter++;
 
             jobsArray.push(userObj.profession.department);
+
+            userJobOption.text = userObj.profession.department;
+            userJobOption.value = userObj.profession.department;   
 
             cardToggleImage.src = "../assets/icons/up-down-arrow.png";
 
@@ -222,6 +286,8 @@ function showUsers(usersArr) {
             cardUserProfessionDiv.classList.add("profession");
 
             cardUserPositionDiv.classList.add("position");
+
+            userJobSelect.append(userJobOption)
 
             cardUserIdentificationDiv.append(identificationImage);
             identificationInfoDiv.append(identificationInitialsSpan);
@@ -267,5 +333,9 @@ function showUsers(usersArr) {
 showUsers(usersFromLocalStorage)
 userMenuImage.addEventListener("click", userDropDownMenuHandler);
 userEditImage.addEventListener("click", editUserHandler);
+searchImage.addEventListener("click", searchHandler);
+maleFilterCheckBox.addEventListener("change", filterHandler)
+femaleFilterCheckBox.addEventListener("change", filterHandler)
+userJobSelect.addEventListener("change", filterHandler)
 //Raz
 userLogoutImage.addEventListener("click",userLogout);

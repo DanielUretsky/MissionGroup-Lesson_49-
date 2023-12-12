@@ -1,10 +1,9 @@
 
 
-export const fetchUsers = async (url = "https://dummyjson.com/users") => {
+export const fetchUsers = async (url) => {
     const users = new Promise((res) => {
         const xhr = new XMLHttpRequest();
-        xhr.open("GET", url, true);
-
+        xhr.open("GET", url , true);
         xhr.onload = function () {
             let data = JSON.parse(this.responseText);
             data = data.users;
@@ -37,10 +36,7 @@ export const fetchUsers = async (url = "https://dummyjson.com/users") => {
             if (!localStorage.getItem("users")) {
                 localStorage.setItem("users", JSON.stringify(usersData));
             }
-            else {
-                usersData = JSON.parse(localStorage.getItem("users"))
-               
-            }
+           
 
             res(usersData)
             console.log(usersData);
