@@ -12,7 +12,14 @@ import { User } from "../utils/userModel.js";
 // DATA
 const usersFromLocalStorage = JSON.parse(localStorage.getItem("users"));
 const loggedUser = JSON.parse(localStorage.getItem("Current_User"));
+//User connect check (Raz)
 
+if(!localStorage.Current_User){
+    
+    window.location.href="../pages/login.html";
+
+}
+///
 console.log(usersFromLocalStorage);
 
 //HTML ELEMENTS
@@ -43,6 +50,8 @@ if (loggedUser.image) {
     userMenuImage.style.width = '30px';
     userMenuImage.style.height = '30px';
 }
+
+
 
 //Open user menu
 const userDropDownMenuHandler = () => {
@@ -102,7 +111,14 @@ const editUserHandler = () => {
 
 }
 
+//Raz
+const userLogout=()=>{
 
+    localStorage.removeItem("Current_User");
+    window.location.href="../pages/login.html";
+    
+    }
+//end Raz
 
 function showUsers(usersArr) {
     const usersCounterSpan = document.getElementById("usersCount");
@@ -161,14 +177,14 @@ function showUsers(usersArr) {
 
             if (userObj.gender === "male") {
                 malesCounter++;
-                malesCounterSpan.textContent = `males: ${malesCounter}`
+                malesCounterSpan.textContent = `males: ${malesCounter}`;
             }
             else if (userObj.gender === "female") {
                 femalesCounter++;
-                femalesCounterSpan.textContent = `females: ${femalesCounter}`
+                femalesCounterSpan.textContent = `females: ${femalesCounter}`;
             }
 
-            
+
             sumAge += userObj.age;
             usersCounter++;
 
@@ -188,7 +204,7 @@ function showUsers(usersArr) {
             moreInfoGenderSpan.innerHTML = `gender: <span style="color: rgb(195, 195, 195)">${userObj.gender}</span>`;
             moreInfoAgeSpan.innerHTML = `age: <span style="color: rgb(195, 195, 195)">${userObj.age}</span>`;
             moreProfessionInfoAdressSpan.innerHTML = `address: <span style="color: rgb(195, 195, 195)">${userObj.companyAddress.adress}</span>`;
-            moreProfessionInfoCitySpan.innerHTML = `city: <span style="color: rgb(195, 195, 195)">${userObj.companyAddress.city}</span>`;
+            moreProfessionInfoCitySpan.innerHTML = `city: <span style="color: rgb(195, 195, 195)">${userObj.companyAddress.city}</span>;`
 
 
             cardDiv.classList.add("card");
@@ -241,7 +257,7 @@ function showUsers(usersArr) {
     }
 
     usersCounterSpan.textContent = `users: ${usersCounter}`;
-    averageAgeCounterSpan.textContent = `avg. age: ${Math.round(sumAge / usersArr.length)}`
+    averageAgeCounterSpan.textContent = `avg. age: ${Math.round(sumAge / usersArr.length)}`;
     console.log('maels', sumAge);
     console.log('females', femalesCounter);
     console.log('jobs', jobsArray);
@@ -251,3 +267,5 @@ function showUsers(usersArr) {
 showUsers(usersFromLocalStorage)
 userMenuImage.addEventListener("click", userDropDownMenuHandler);
 userEditImage.addEventListener("click", editUserHandler);
+//Raz
+userLogoutImage.addEventListener("click",userLogout);
