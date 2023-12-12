@@ -114,6 +114,7 @@ function showUsers(usersArr) {
     let malesCounter = 0;
     let femalesCounter = 0;
     let sumAge = 0;
+    let usersCounter = 0;
 
     let jobsArray = [];
 
@@ -167,7 +168,10 @@ function showUsers(usersArr) {
                 femalesCounterSpan.textContent = `females: ${femalesCounter}`
             }
 
+            
             sumAge += userObj.age;
+            usersCounter++;
+
             jobsArray.push(userObj.profession.department);
 
             cardToggleImage.src = "../assets/icons/up-down-arrow.png";
@@ -236,7 +240,7 @@ function showUsers(usersArr) {
         }
     }
 
-    usersCounterSpan.textContent = `users: ${usersArr.length}`;
+    usersCounterSpan.textContent = `users: ${usersCounter}`;
     averageAgeCounterSpan.textContent = `avg. age: ${Math.round(sumAge / usersArr.length)}`
     console.log('maels', sumAge);
     console.log('females', femalesCounter);
