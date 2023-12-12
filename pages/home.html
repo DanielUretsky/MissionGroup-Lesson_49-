@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/registration.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,500;0,700;0,900;1,500&display=swap"
+    rel="stylesheet">
     <link rel="stylesheet" href="../styles/home.css">
     <title>Document</title>
 </head>
@@ -15,66 +21,73 @@
             <div class="user-container" id="userContainer">
                 <div class="user-container__user">
                     <img src="../assets/icons/user.png" alt="user" id="userMenu">
-                    <p id="userInitials">Daniel Uretsky</p>
+                    <p id="userInitials"></p>
                 </div>
-                
             </div>
         </nav>
     </header>
     <main>
-        <div class="tools-container" id="toolsContainer">
-            <div class="toggle">
-                <img src="../assets/icons/up-down-arrow.png" alt="up down" id="toolsArrowToggle">
-            </div>
-            <div class="info">
-                <div class="info__users-count">
-                    <img src="../assets/icons/users.png" alt="">
-                    Users: 30
+        <div class="cards-wrapper" >
+            <div class="panel">
+                <div class="tools__header">
+                    <img src="../assets/icons/search-filter.png" alt="filter" class="tools-icon">
                 </div>
-                <div class="info__males">
-                    <img src="../assets/icons/males.png" alt="males">
-                    Females: 5
+                <div class="search">
+                    <input type="type" id="search" placeholder="Search card">
                 </div>
-                <div class="info__females">
-                    <img src="../assets/icons/females.png" alt="females">
-                    Males: 25
-                </div>
-                <div class="info__middle-age">
-                    <img src="../assets/icons/age-group.png" alt="">
-                    Middle age: 22
-                </div>
-            </div>
-            <div class="tools">
-                <div class="gender">
-                    <div class="gender__header">
-                        Gender:
+                <div class="info">
+                    <div class="info-header">
+                        <img src="../assets/icons/info.png" alt="info" class="info-icon">
                     </div>
-                    <div class="gender__male">
-                        <label for="male">Male</label>
-                        <input type="checkbox" name="male">
+                    <div class="info__users-count">
+                        <img src="../assets/icons/users.png" alt="">
+                        <span id="usersCount">users: 30</span>
                     </div>
-                    
-                    <div class="gender__female">
-                        <label for="male">Female</label>
-                        <input type="checkbox" name="female">
+                    <div class="info__males">
+                        <img src="../assets/icons/males.png" alt="males">
+                        <span id="malesCount">males: 5</span>
                     </div>
-                    
+                    <div class="info__females">
+                        <img src="../assets/icons/females.png" alt="females">
+                        <span id="femalesCount">males: 25</span>
+                    </div>
+                    <div class="info__middle-age">
+                        <img src="../assets/icons/age-group.png" alt="">
+                        <span id="averageAgeCount">avg. age: 22</span>
+                    </div>
                 </div>
 
-                <div class="gender">
-                    <div class="gender__header">
-                        Profession:
+                
+                <div class="tools">
+                    
+                    <div class="filter">
+                        <div class="filter__header">
+                            <img src="../assets/icons/filter.png" alt="filter" class="filter-icon">
+                        </div>
+                        <div class="filter__male">
+                            <span>male</span>
+                            <input type="checkbox" name="" id="male">
+                        </div>
+                        <div class="filter__female">
+                            <span>female</span>
+                            <input type="checkbox" name="" id="female">
+                        </div>
+                        <div class="filter__job">
+                            <span>job</span>
+                            <select name="" id="job">
+                                
+                            </select>
+                        </div>
                     </div>
-                    <section></section>
+
                     
                 </div>
             </div>
-            
-            
-        </div>
-
-        <div class="cards" id="usersCardContainer">
-
+            <div class="cards-container">
+                <div class="cards" id="usersCardsContainer">
+                  
+                </div>
+            </div>
         </div>
     </main>
 

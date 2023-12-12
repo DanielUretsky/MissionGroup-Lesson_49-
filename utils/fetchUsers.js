@@ -1,7 +1,9 @@
-export const fetchUsers = async () => {
+
+
+export const fetchUsers = async (url = "https://dummyjson.com/users") => {
     const users = new Promise((res) => {
         const xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://dummyjson.com/users", true);
+        xhr.open("GET", url, true);
 
         xhr.onload = function () {
             let data = JSON.parse(this.responseText);
@@ -26,21 +28,26 @@ export const fetchUsers = async () => {
                     profession: {
                         department: data[x].company.department,
                         position: data[x].company.title
-                    }
+                    },
+                    isAdmin: false,
                 };
                 usersData.push(dataObj);
             };
 
-            console.log('userData from fetch', usersData);
             if (!localStorage.getItem("users")) {
                 localStorage.setItem("users", JSON.stringify(usersData));
             }
+            else {
+                usersData = JSON.parse(localStorage.getItem("users"))
+               
+            }
 
-            res(usersData);
+            res(usersData)
+            console.log(usersData);
         }
 
         xhr.send();
     });
-
+    
     return users;
 }
